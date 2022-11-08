@@ -1,0 +1,21 @@
+﻿@page "/charthihi1"
+@using AntDesign.Charts
+@using Title = AntDesign.Charts.Title
+
+
+<h3>Charthihi1</h3>
+<SimpleSelect DefaultValue="lucy" Style="width:120px;" OnSelectedItemChanged="handleChange">
+    <SelectOptions>
+        <SimpleSelectOption Value="SLToan" Label="Toán"></SimpleSelectOption>
+        <SimpleSelectOption Value="SLVan" Label="Văn"></SimpleSelectOption>
+       
+        <SimpleSelectOption Value="SLAnh" Label="Anh"></SimpleSelectOption>
+       
+    </SelectOptions>
+</SimpleSelect>
+
+
+<AntDesign.Charts.Column @ref="myChart" Data="data1" Config="config1" />
+@code {
+
+}

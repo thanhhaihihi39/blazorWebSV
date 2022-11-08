@@ -1,0 +1,30 @@
+﻿@page "/chartjs"
+
+@using AntDesign.Charts
+@using Title = AntDesign.Charts.Title
+
+<Tabs>
+    <TabPane Key="1">
+        <TabTemplate>Example 1</TabTemplate>
+        <ChildContent>
+            <Pie Data="data1" Config="config1" />
+        </ChildContent>
+    </TabPane>
+
+
+</Tabs>
+
+<Divider Orientation="left">Draggable</Divider>
+
+<AntList Bordered DataSource="@data">
+    <Header>Header</Header>
+    <ChildContent Context="item">
+        <ListItem>
+            <div draggable="true" @ondrop="e=>OnDrop(e, item)" @ondragstart="e=>OnDragStart(e, item)" ondragover="event.preventDefault()">
+                <span><Text Mark>[ITEM]</Text></span>@item
+            </div>
+        </ListItem>
+    </ChildContent>
+
+    <Footer>Footer</Footer>
+</AntList>

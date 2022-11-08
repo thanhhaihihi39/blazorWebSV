@@ -1,0 +1,35 @@
+﻿@layout LoginLayout
+@page "/"
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject NotificationService _notice
+
+
+@using System.ComponentModel.DataAnnotations;
+@using System.Text.Json;
+@using System.ComponentModel
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<Form Model="@taikhoan"
+      OnFinish="OnFinish"
+      OnFinishFailed="OnFinishFailed"
+      LabelColSpan="8"
+      WrapperColSpan="8">
+    <FormItem Label="Tên đăng nhập">
+        <Input @bind-Value="@context.TenDangNhap" />
+    </FormItem>
+    <FormItem Label="Mật khẩu">
+        <InputPassword @bind-Value="@context.MatKhau" />
+    </FormItem>
+    <FormItem WrapperColOffset="8" WrapperColSpan="16">
+        <Button Type="@ButtonType.Primary" HtmlType="submit" OnClick="login">
+            Submit
+        </Button>
+    </FormItem>
+</Form>

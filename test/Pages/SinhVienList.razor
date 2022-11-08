@@ -1,0 +1,56 @@
+﻿@page "/list-sinhvien"
+@using System.ComponentModel
+@using AntDesign.TableModels
+@using BlazorNhiber1.Components
+@using BlazorNhiber1.Data;
+
+
+
+@using System.Collections.Generic;
+<Button Type="primary" @onclick="Add">ADD</Button>
+@*@if (Task == null)
+{
+<LoadingIndicator></LoadingIndicator>
+}
+else {*@
+
+
+<Form Model="@TaskSearchSinhViens"
+      OnFinish="Search">
+                    <FormItem>
+                        <Input @bind-Value="@context.Name" />
+                    </FormItem>
+                    <FormItem WrapperColOffset="8" WrapperColSpan="16">
+                        <Button Type="@ButtonType.Primary" HtmlType="submit">
+                            Tìm kiếm
+                        </Button>
+                    </FormItem>
+                </Form>
+
+<Table TItem="SinhVienViewModel" DataSource="SinhVienViewModels" >
+    <Column @bind-Field="context.stt"></Column>
+    <Column @bind-Field="context.ten"></Column>
+    <Column @bind-Field="context.gioitinh"></Column>
+    <Column @bind-Field="context.tuoi"></Column>
+    <Column @bind-Field="context.diemtoan"></Column>
+    <Column @bind-Field="context.diemanh"></Column>
+    <Column @bind-Field="context.diemvan"></Column>
+    <Column @bind-Field="context.diemtb"></Column>
+    <Column @bind-Field="context.hocluc"></Column>
+    <ActionColumn Title="Action" Fixed="right" Class="btn-link">
+        <Icon Type="edit" Theme="outline" @onclick="() => Edit(context)" Width="20" Height="20" />
+       
+        <Popconfirm Title="Sure to delete?"
+                    OnConfirm="()=> DeleteSinhVienAsync(context.id)"
+                    OkText="Yes"
+                    CancelText="No">
+            <Icon Type="delete" Theme="outline" Width="20" Height="20" />
+        </Popconfirm>
+    </ActionColumn>
+</Table>
+
+<Drawer Closable="true" Visible="visible" Placement="right" Width=500 Title='("Sinh Viên")' OnClose="() => visible = false">
+    
+    <EditSinhVien @ref="editSinhVien" Cancel="() => visible = false" ValueChange="Save"></EditSinhVien>
+</Drawer>
+@*}*@

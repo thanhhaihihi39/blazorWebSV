@@ -1,0 +1,41 @@
+﻿@page "/SinhVien"
+@using BlazorNhiber1.Data
+
+<p>This component demonstrates fetching data from a service.</p>
+<Button OnClick="Add">Thêm mới</Button>
+<table class="table" DataSource="SinhVienViewModels" PageIndex="SinhVienPaging1.PageIndex"
+       PageSize="SinhVienPaging1.PageSize"
+       Total="SinhVienPaging1.Total"
+       OnPageIndexChange="PageIndexChangeAsync"
+       OnPageSizeChange="PageSizeChangeAsync">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên Sinh viên</th>
+            <th>Giới tính</th>
+            <th>Tuổi</th>
+            <th>Điểm toán</th>
+            <th>Điểm anh</th>
+            <th>Điểm Văn</th>
+            <th>Điểm Trung Bình</th>
+            <th>Học Lực</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Sinhvien)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.Sex</td>
+                <td>@item.Age</td>
+                <td>@item.DiemToan</td>
+                <td>@item.DiemVan</td>
+                <td>@item.DiemAnh</td>
+                <td>@item.DiemTrungBinh</td>
+                <td>@item.HocLuc</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
